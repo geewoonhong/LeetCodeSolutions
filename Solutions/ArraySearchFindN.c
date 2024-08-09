@@ -30,18 +30,6 @@ bool checkIfExist(int *arr, int arrSize)
 	return (false);
 }
 
-void printArray(int *arr, int arrSize)
-{
-	int i = 0;
-	while (i < arrSize)
-	{
-		printf("%d ", arr[i]);
-		i++;
-	}
-	printf("\n");
-	return;
-}
-
 int main()
 {
 	int tst1[] = {10,2,5,3};
