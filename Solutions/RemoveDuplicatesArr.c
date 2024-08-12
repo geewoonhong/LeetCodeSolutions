@@ -6,26 +6,67 @@ be kept the same. Then return the number of unique elements in nums.
 */
 #include <stdio.h>
 
-int removeDuplicates(int* nums, int numsSize)
+// int removeDuplicates(int *nums, int numsSize)
+// {
+//     int i = 0;
+//     int k = 0;
+//     while (i < numsSize)
+//     {
+//         if (((i+1) < numsSize) && (nums[i] != nums[i+1]))
+//         {
+//             nums[k] = nums[i];
+//             k++;
+//         }
+// 		else if((i+1) == numsSize)
+//         {
+// 			nums[k] = nums[i];
+// 			k++;
+//         }
+// 		i++;
+//     }
+//     return (k);
+// }
+
+int	removeDuplicates(int *nums, int numsSize)
 {
-    int i = 0;
-    int k = 0;
-    while (i < numsSize)
-    {
-        if (((i+1) < numsSize) && (nums[i] != nums[i+1]))
-        {
-            nums[k] = nums[i];
-            k++;
-        }
-		else if((i+1) == numsSize)
-        {
-			nums[k] = nums[i];
-			k++;
-        }
-		i++;
-    }
-    return (k);
+	int	writeptr;
+	int	readptr;
+
+	writeptr = 1;
+	readptr = 1;
+	while (readptr < numsSize)
+	{
+		if (nums[readptr] != nums[readptr -1]) //if it is a unique number
+		{
+			nums[writeptr] = nums[readptr];
+			writeptr++;
+			readptr++;
+		}
+		else
+			readptr++;
+	}
+	return (writeptr);
 }
+
+/* Another faster method */
+// int removeDuplicates(int* nums, int numsSize) {
+//     int i =0;
+//     int count=-1000;
+//     int j=0;
+//     int counter=0;
+//     for(i=0; i < numsSize; i++)
+// 	{
+//        if(nums[i] > count)
+// 	   {
+//         counter++;
+//         count = nums[i];
+//         nums[j]=count;
+//         j++;
+//        }
+//     }
+//     return counter;
+
+// }
 
 void	printArray(int *array, int size)
 {
