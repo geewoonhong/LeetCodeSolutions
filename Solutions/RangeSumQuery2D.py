@@ -23,6 +23,7 @@ from typing import List
 class NumMatrix:
 
     def __init__(self, matrix: List[List[int]]):
+        #in python we can use '_' as a throwaway varible : in this case we just want to iterate.
         self.pf = [[0]*(len(matrix[0])+1) for _ in range(len(matrix))]
         for i in range(len(matrix)):
             for j in range(1, (len(matrix[0])+1)): #add extra column for zeros j = 1 to 5
